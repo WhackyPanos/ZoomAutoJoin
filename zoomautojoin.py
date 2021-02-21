@@ -1,17 +1,16 @@
-import os
+import time
 import subprocess
 import sys
+import record
+import launchzoom
 
-meetingid = "538877853"
-hashpwd = "Z0VpWDllWGM5MU85eHZxbkQwc3BKZz09"
+# Meeting setup for testing
+# TODO read from JSON
+meetingId = "538877853"
+hashPwd = "Z0VpWDllWGM5MU85eHZxbkQwc3BKZz09"
 
-start = "xwininfo: Window id: "
 
-os.system("/bin/xdg-open " + "\"zoommtg://tuc-gr.zoom.us/join?confno=" + meetingid + "&pwd=" + hashpwd + "\"")
+# Start zoom
+launchzoom.startMeeting(meetingId, hashPwd)
 
-try:
-    result = subprocess.check_output("xwininfo -name \"Zoom Meeting\"", shell=True)
-except:
-    print("Window not found!")
-    sys.exit(100)
-print(result[result.find(start)+len(start):result.find(start)+len(start)+9])
+# Grab window id from X
