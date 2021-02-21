@@ -2,7 +2,7 @@ import time
 import subprocess
 import sys
 import record
-import launchzoom
+import zoom
 
 # Meeting setup for testing
 # TODO read from JSON
@@ -11,6 +11,6 @@ hashPwd = "Z0VpWDllWGM5MU85eHZxbkQwc3BKZz09"
 
 
 # Start zoom
-launchzoom.startMeeting(meetingId, hashPwd)
+zoom.startMeeting(meetingId, hashPwd)
 
 # Grab window id from X
